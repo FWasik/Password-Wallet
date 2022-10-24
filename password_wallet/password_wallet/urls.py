@@ -20,9 +20,5 @@ from users import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", auth_views.LoginView.as_view(), name="home"),
-    path("login/", auth_views.LoginView.as_view(template_name="users/login.html"), name="users-login"),
-    path("register/",  views.register, name="users-register"),
-    path("logout/", auth_views.LogoutView.as_view(template_name="users/logout.html"), name="users-logout"),
-    path("update-password/", views.change_password, name="users-password-change")
+    path("", include("users.urls", namespace="users")),
 ]

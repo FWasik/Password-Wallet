@@ -30,18 +30,24 @@
                   </li>
 
                   <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'users-password-change' %}">Password update</a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'users-logout' %}">Logout</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'users-login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'users:password-change' %}">Password update</a>
                   </li>
 
                   <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'users-register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'users:delete' user.id %}">Delete account</a>
+                  </li>
+
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:logout' %}">Logout</a>
+                  </li>
+
+              {% else %}
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:login' %}">Login</a>
+                  </li>
+
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:register' %}">Register</a>
                   </li>
               {% endif %}
             </ul>
