@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="user app commit with custom user, admin panel config and migration">
-      <change afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/logout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PasswordWallet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PasswordWallet.iml" afterDir="false" />
+    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="login, logout and register commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,6 +39,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Programowanie/Python/Kursik/Django/Library" />
@@ -83,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666386134312</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="login, logout and register commit">
+      <created>1666601957562</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666601957562</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +115,7 @@
     <MESSAGE value="docker config, pipenv and requirements config + gitignore" />
     <MESSAGE value="add user app, database config and env variables" />
     <MESSAGE value="user app commit with custom user, admin panel config and migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="user app commit with custom user, admin panel config and migration" />
+    <MESSAGE value="login, logout and register commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="login, logout and register commit" />
   </component>
 </project>
