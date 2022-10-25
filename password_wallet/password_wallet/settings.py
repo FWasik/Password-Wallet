@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "users",
+    "wallet",
     "crispy_forms",
 ]
 
@@ -133,5 +134,5 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'wallet:wallet'
 LOGIN_URL = 'users:login'

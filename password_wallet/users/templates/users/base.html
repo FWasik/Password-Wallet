@@ -13,7 +13,7 @@
 <body>
     <header>
        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Password Wallet</a>
+          <a class="navbar-brand" href="{% url 'wallet:wallet' %}">Password Wallet</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,9 +25,16 @@
               </li>
 
               {% if user.is_authenticated %}
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Dashboard</a>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{% url 'wallet:wallet' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Wallet
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'wallet:add' %}">Add password</a>
+                        <a class="dropdown-item"  href="{% url 'wallet:wallet' %}">Show passwords</a>
+                    </div>
                   </li>
+
 
                   <li class="nav-item active">
                     <a class="nav-link" href="{% url 'users:password-change' %}">Password update</a>
