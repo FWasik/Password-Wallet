@@ -1,14 +1,29 @@
-from Crypto.Cipher import AES
+import base64
 import os
+from Crypto import Random
+from Crypto.Cipher import AES
 
-def encrypt_AES_GCM(password):
-    x = os.getenv("SECRET_KEY_PASS")
-    aes_cipher = AES.new(x.encode("utf-8"), AES.MODE_GCM)
-    ciphertext, auth_tag = aes_cipher.encrypt_and_digest(password.encode("utf-8"))
-    return ciphertext, aes_cipher.nonce, auth_tag
 
-def decrypt_AES_GCM(encrypted_msg):
-    (ciphertext, nonce, auth_tag) = encrypted_msg
-    aes_cipher = AES.new(bytes(os.getenv("SECRET_KEY_PASS")), AES.MODE_GCM, nonce)
-    plaintext = aes_cipher.decrypt_and_verify(ciphertext, auth_tag)
-    return plaintext
+class AESCipher():
+    def __init__(self):
+        self.bs = AES.block_size
+        self.key = os.getenv("SECRET_KEY_PASS").encode()
+
+    def encrypt(self, raw):
+        raw = self._pad(raw)
+        iv = Random.new().read(AES.block_size)
+        cipher = AES.new(self.key, AES.MODE_CBC, iv)
+        return base64.b64encode(iv + cipher.encrypt(raw.encode()))
+
+    def decrypt(self, enc):
+        enc = base64.b64decode(enc)
+        iv = enc[:AES.block_size]
+        cipher = AES.new(self.key, AES.MODE_CBC, iv)
+        return AESCipher._unpad(cipher.decrypt(enc[AES.block_size:])).decode('utf-8')
+
+    def _pad(self, s):
+        return s + (self.bs - len(s) % self.bs) * chr(self.bs - len(s) % self.bs)
+
+    @staticmethod
+    def _unpad(s):
+        return s[:-ord(s[len(s) - 1:])]
