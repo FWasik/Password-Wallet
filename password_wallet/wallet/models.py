@@ -7,6 +7,4 @@ class Password(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="user")
     web_address = models.CharField(max_length=256, default="", blank=True)
     login = models.CharField(max_length=50, default="", blank=True)
-    nonce = models.CharField(max_length=256, default="", blank=True)
-    tag = models.CharField(max_length=256, default="", blank=True)
     description = models.TextField(default="", blank=True)

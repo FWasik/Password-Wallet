@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="switching to generic views in create user, adding delete user functionality, diversing urls and switching to reverse_lazy">
+    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/user_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/aes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/wallet_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/wallet_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666628828775</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality">
+      <created>1666726131368</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666726131368</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +143,7 @@
     <MESSAGE value="login, logout and register commit" />
     <MESSAGE value="change password commit" />
     <MESSAGE value="switching to generic views in create user, adding delete user functionality, diversing urls and switching to reverse_lazy" />
-    <option name="LAST_COMMIT_MESSAGE" value="switching to generic views in create user, adding delete user functionality, diversing urls and switching to reverse_lazy" />
+    <MESSAGE value="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality" />
   </component>
 </project>

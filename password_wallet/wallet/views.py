@@ -3,13 +3,16 @@ from django.views.generic import (
     ListView,
     DeleteView,
     CreateView,
-    UpdateView
+    UpdateView,
+    ListView,
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Password
 from django.urls import reverse_lazy
 from .forms import PasswordCreationAndUpdateForm
+from django.shortcuts import get_object_or_404
+from .aes import AESCipher
 
 
 class PasswordListView(LoginRequiredMixin, ListView):
@@ -47,3 +50,15 @@ class PasswordUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Password
     success_url = reverse_lazy("wallet:wallet")
     success_message = "You successful updated password!"
+
+
+def decrypting_password(request, pk):
+    password = get_object_or_404(Password,
+                                 id=pk)
+    enc_pass = password.password_to_wallet
+
+    cipher = AESCipher()
+
+    decry_pass = cipher.decrypt(enc_pass.encode())
+
+    return render(request, "wallet/password_show.html", {"password": decry_pass})

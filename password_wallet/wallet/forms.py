@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import Password
-from .aes import encrypt_AES_GCM
+from .aes import AESCipher
 
 
 class PasswordCreationAndUpdateForm(ModelForm):
@@ -17,10 +17,11 @@ class PasswordCreationAndUpdateForm(ModelForm):
 		cleaned_data = super().clean()
 		password = cleaned_data.get("password_to_wallet")
 
-		encrypted_msg = encrypt_AES_GCM(password)
-		cleaned_data["password_to_wallet"] = encrypted_msg[0]
-		cleaned_data["nonce"] = encrypted_msg[1]
-		cleaned_data["tag"] = encrypted_msg[2]
+		cipher = AESCipher()
+
+		enc_pass = cipher.encrypt(password)
+		cleaned_data["password_to_wallet"] = enc_pass.decode()
 
 		return cleaned_data
+
 
