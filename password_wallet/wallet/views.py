@@ -1,18 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import (
     ListView,
     DeleteView,
     CreateView,
     UpdateView,
     ListView,
+    FormView,
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Password
 from django.urls import reverse_lazy
-from .forms import PasswordCreationAndUpdateForm
+from .forms import PasswordCreationAndUpdateForm, PasswordCheckForm
 from django.shortcuts import get_object_or_404
 from .aes import AESCipher
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 class PasswordListView(LoginRequiredMixin, ListView):
@@ -52,6 +55,31 @@ class PasswordUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = "You successful updated password!"
 
 
+class IfCheckedView(FormView):
+    form_class = PasswordCheckForm
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_password_checked:
+            return redirect("wallet:show", pk=kwargs["pk"])
+
+        return super(IfCheckedView, self).get(request, args, kwargs)
+
+    def post(self, request, *args, **kwargs):
+        entered_password = request.POST["password"]
+
+        if request.user.check_password(entered_password):
+            request.user.is_password_checked = True
+            request.user.save()
+
+            return redirect("wallet:show", pk=kwargs["pk"])
+
+        else:
+            messages.error(request, "Password is incorrect!")
+
+        return render(request, "wallet/master_password_check.html", {"form": self.form_class})
+
+
+@login_required
 def decrypting_password(request, pk):
     password = get_object_or_404(Password,
                                  id=pk)

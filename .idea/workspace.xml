@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality">
+    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="modifing aes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/aes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/wallet/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/password_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/password_show.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/wallet_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/wallet_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/views.py" afterDir="false" />
@@ -51,6 +52,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\frane\PycharmProjects\PasswordWallet\password_wallet\wallet\templates\wallet" />
       <recent name="C:\Users\frane\PycharmProjects\PasswordWallet\password_wallet" />
       <recent name="C:\Users\frane\PycharmProjects\PasswordWallet" />
     </key>
@@ -120,7 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666726131368</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="modifing aes, model and admin - adding functionality for password showing (template and view)">
+      <created>1666852171258</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666852171258</updated>
+    </task>
+    <task id="LOCAL-00010" summary="modifing aes">
+      <created>1666852209832</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666852209833</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,6 +160,8 @@
     <MESSAGE value="change password commit" />
     <MESSAGE value="switching to generic views in create user, adding delete user functionality, diversing urls and switching to reverse_lazy" />
     <MESSAGE value="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding wallet app with views, form, urls and templates, adding aes encryption and decryption, adding user delete functionality" />
+    <MESSAGE value="modifing aes, model and admin - adding functionality for password showing (template and view)" />
+    <MESSAGE value="modifing aes" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifing aes" />
   </component>
 </project>

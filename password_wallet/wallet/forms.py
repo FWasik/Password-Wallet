@@ -1,12 +1,18 @@
 from django.forms import ModelForm
 from .models import Password
 from .aes import AESCipher
+from users.models import CustomUser
+from django import forms
 
 
 class PasswordCreationAndUpdateForm(ModelForm):
+
 	class Meta:
 		model = Password
 		fields = ("password_to_wallet", "login", "web_address", "description", )
+		widgets = {
+			"password_to_wallet": forms.PasswordInput(),
+		}
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
@@ -25,3 +31,10 @@ class PasswordCreationAndUpdateForm(ModelForm):
 		return cleaned_data
 
 
+class PasswordCheckForm(ModelForm):
+	class Meta:
+		model = CustomUser
+		fields = ("password", )
+		widgets = {
+			"password": forms.PasswordInput()
+		}

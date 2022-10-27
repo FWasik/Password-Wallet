@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CustomUserCreationForm, CustomUserUpdateForm
+from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from django.views.generic import DeleteView, CreateView, UpdateView
+from django.views.generic import DeleteView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import get_user_model
+from django.contrib.auth.urls import views as auth_views
 
 
 class CustomUserCreateView(SuccessMessageMixin, CreateView):
@@ -27,6 +28,14 @@ class CustomUserDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessa
         if self.request.user == user:
             return True
         return False
+
+
+class CustomLogoutView(auth_views.LogoutView):
+    def get(self, request, *args, **kwargs):
+        request.user.is_password_checked = False
+        request.user.save()
+
+        return super(CustomLogoutView, self).get(request, *args, **kwargs)
 
 
 @login_required

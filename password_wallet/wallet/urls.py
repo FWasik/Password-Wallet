@@ -1,6 +1,4 @@
-from django.contrib import admin
-from django.urls import path, include
-from django.contrib.auth.urls import views as auth_views
+from django.urls import path
 from wallet import views
 
 app_name = "wallet"
@@ -13,4 +11,6 @@ urlpatterns = [
     path("wallet/<int:pk>/delete/", views.PasswordDeleteView.as_view(template_name="wallet/password_delete.html"),
          name="delete"),
     path("wallet/<int:pk>/show/", views.decrypting_password, name="show"),
+    path("wallet/<int:pk>/check/", views.IfCheckedView.as_view(template_name="wallet/master_password_check.html"),
+         name="check")
 ]
