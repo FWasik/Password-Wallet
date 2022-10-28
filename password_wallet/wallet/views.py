@@ -6,6 +6,7 @@ from django.views.generic import (
     UpdateView,
     ListView,
     FormView,
+    DetailView
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -15,7 +16,6 @@ from .forms import PasswordCreationAndUpdateForm, PasswordCheckForm
 from django.shortcuts import get_object_or_404
 from .aes import AESCipher
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 
 class PasswordListView(LoginRequiredMixin, ListView):
@@ -47,6 +47,13 @@ class PasswordCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+    def post(self, request, *args, **kwargs):
+        if request.user.is_password_checked:
+            request.user.is_password_checked = False
+            request.user.save()
+
+        return super(PasswordCreateView, self).post(request, *args, **kwargs)
+
 
 class PasswordUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class = PasswordCreationAndUpdateForm
@@ -54,24 +61,34 @@ class PasswordUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy("wallet:wallet")
     success_message = "You successful updated password!"
 
+    def post(self, request, *args, **kwargs):
+        if request.user.is_password_checked:
+            request.user.is_password_checked = False
+            request.user.save()
 
-class IfCheckedView(FormView):
+        return super(PasswordUpdateView, self).post(request, *args, **kwargs)
+
+
+class IfCheckedView(LoginRequiredMixin, FormView):
     form_class = PasswordCheckForm
 
     def get(self, request, *args, **kwargs):
-        if request.user.is_password_checked:
-            return redirect("wallet:show", pk=kwargs["pk"])
+        pk = kwargs.get("pk")
+        password = get_object_or_404(Password, pk=pk)
+
+        if password.user != request.user or request.user.is_password_checked:
+            return redirect("wallet:show", pk=pk)
 
         return super(IfCheckedView, self).get(request, args, kwargs)
 
     def post(self, request, *args, **kwargs):
-        entered_password = request.POST["password"]
+        entered_password = request.POST.get("password")
 
         if request.user.check_password(entered_password):
             request.user.is_password_checked = True
             request.user.save()
 
-            return redirect("wallet:show", pk=kwargs["pk"])
+            return redirect("wallet:show", pk=kwargs.get("pk"))
 
         else:
             messages.error(request, "Password is incorrect!")
@@ -79,14 +96,20 @@ class IfCheckedView(FormView):
         return render(request, "wallet/master_password_check.html", {"form": self.form_class})
 
 
-@login_required
-def decrypting_password(request, pk):
-    password = get_object_or_404(Password,
-                                 id=pk)
-    enc_pass = password.password_to_wallet
+class DecryptingPasswordView(DetailView):
+    def get(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        password = get_object_or_404(Password, pk=pk)
 
-    cipher = AESCipher()
+        if password.user == request.user or not request.user.is_password_checked:
+            password = get_object_or_404(Password,
+                                         id=pk)
+            enc_pass = password.password_to_wallet
 
-    decry_pass = cipher.decrypt(enc_pass.encode())
+            cipher = AESCipher()
 
-    return render(request, "wallet/password_show.html", {"password": decry_pass})
+            decry_pass = cipher.decrypt(enc_pass.encode())
+
+            return render(request, "wallet/password_show.html", {"password": decry_pass})
+
+        return redirect("wallet:wallet")

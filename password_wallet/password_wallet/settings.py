@@ -134,5 +134,6 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+LOGOUT_REDIRECT_URL = "users:login"
 LOGIN_REDIRECT_URL = 'wallet:wallet'
 LOGIN_URL = 'users:login'

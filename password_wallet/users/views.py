@@ -35,6 +35,8 @@ class CustomLogoutView(auth_views.LogoutView):
         request.user.is_password_checked = False
         request.user.save()
 
+        messages.success(request, "You have been log out!")
+
         return super(CustomLogoutView, self).get(request, *args, **kwargs)
 
 
@@ -44,6 +46,8 @@ def change_password(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
+            user.is_password_checked = False
+            user.save()
             update_session_auth_hash(request, user)
             messages.success(request, 'Your password was successfully updated!')
             return redirect('users:password-change')

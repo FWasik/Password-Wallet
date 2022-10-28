@@ -10,7 +10,8 @@ urlpatterns = [
          name="update"),
     path("wallet/<int:pk>/delete/", views.PasswordDeleteView.as_view(template_name="wallet/password_delete.html"),
          name="delete"),
-    path("wallet/<int:pk>/show/", views.decrypting_password, name="show"),
+    path("wallet/<int:pk>/show/", views.DecryptingPasswordView.as_view(template_name="wallet/password_show.html"),
+         name="show"),
     path("wallet/<int:pk>/check/", views.IfCheckedView.as_view(template_name="wallet/master_password_check.html"),
          name="check")
 ]
