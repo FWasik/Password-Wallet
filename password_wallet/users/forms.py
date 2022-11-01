@@ -9,9 +9,9 @@ class CustomUserCreationForm(UserCreationForm):
 		fields = ("login", "password1", "password2")
 
 
-class CustomUserUpdateForm(forms.ModelForm):
-    password1 =  forms.CharField(max_length=250)
-
-    class Meta:
-        model = get_user_model()
-        fields = ["login", "password", "password1"]
+# class CustomUserUpdateForm(forms.ModelForm):
+#     password1 =  forms.CharField(max_length=250)
+#
+#     class Meta:
+#         model = get_user_model()
+#         fields = ["login", "password", "password1"]

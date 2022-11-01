@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="adding password show functionality, changing endpoints, new field for custom user">
+    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/logout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/aes.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/aes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +51,27 @@
       <recent name="C:\Users\frane\PycharmProjects\PasswordWallet\password_wallet" />
       <recent name="C:\Users\frane\PycharmProjects\PasswordWallet" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Python tests for tests.IfCheckPasswordCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="PasswordWallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/password_wallet" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.IfCheckPasswordCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for tests.IfCheckPasswordCase" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -139,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666866126067</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password">
+      <created>1666986317247</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666986317247</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -166,6 +193,14 @@
     <MESSAGE value="modifing aes, model and admin - adding functionality for password showing (template and view)" />
     <MESSAGE value="modifing aes" />
     <MESSAGE value="adding password show functionality, changing endpoints, new field for custom user" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding password show functionality, changing endpoints, new field for custom user" />
+    <MESSAGE value="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="__exception__" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

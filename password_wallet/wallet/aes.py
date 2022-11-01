@@ -4,7 +4,7 @@ from Crypto import Random
 from Crypto.Cipher import AES
 
 
-class AESCipher():
+class AESCipher:
     def __init__(self):
         self.bs = AES.block_size
         self.key = os.getenv("SECRET_KEY_PASS").encode()

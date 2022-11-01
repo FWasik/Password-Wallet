@@ -101,7 +101,7 @@ class DecryptingPasswordView(DetailView):
         pk = kwargs.get("pk")
         password = get_object_or_404(Password, pk=pk)
 
-        if password.user == request.user or not request.user.is_password_checked:
+        if password.user == request.user:
             password = get_object_or_404(Password,
                                          id=pk)
             enc_pass = password.password_to_wallet
