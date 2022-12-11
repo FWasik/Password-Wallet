@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "users",
     "wallet",
+    "addresses",
     "crispy_forms",
+    "BruteBuster",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'BruteBuster.middleware.RequestMiddleware',
 ]
 
 ROOT_URLCONF = 'password_wallet.urls'
@@ -137,3 +140,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGOUT_REDIRECT_URL = "users:login"
 LOGIN_REDIRECT_URL = 'wallet:wallet'
 LOGIN_URL = 'users:login'
+
+BB_MAX_FAILURES = 2
+BB_BLOCK_INTERVAL = 2

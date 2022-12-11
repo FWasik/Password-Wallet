@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password">
+    <list default="true" id="a38433da-8360-4e82-9b62-4b5af7a8b0a8" name="Changes" comment="getting rid of unused imports in tests.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/aes.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/aes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +47,9 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Programowanie/Python/Kursik/Django/Library" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/password_wallet/manage.py" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -52,7 +58,36 @@
       <recent name="C:\Users\frane\PycharmProjects\PasswordWallet" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Django">
+    <configuration name="Django" type="PythonConfigurationType" factoryName="Python">
+      <module name="PasswordWallet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\frane\.virtualenvs\PasswordWallet-pUWc8cVO\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/password_wallet" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/password_wallet/manage.py" />
+      <option name="PARAMETERS" value="runserver 0.0.0.0:8000" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for tests.IfCheckPasswordCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="PasswordWallet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -67,8 +102,14 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Python.Django" />
+      <item itemvalue="Python tests.Python tests for tests.IfCheckPasswordCase" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Python tests.Python tests for tests.IfCheckPasswordCase" />
       </list>
     </recent_temporary>
@@ -166,7 +207,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666986317247</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="unittests, syntax change in aes.py file, getting rid of unnecessary code from forms.py, changing condition in views.py">
+      <created>1667316245602</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1667316245602</updated>
+    </task>
+    <task id="LOCAL-00014" summary="getting rid of unused imports in tests.py">
+      <created>1667316464684</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667316464684</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,9 +249,20 @@
     <MESSAGE value="modifing aes" />
     <MESSAGE value="adding password show functionality, changing endpoints, new field for custom user" />
     <MESSAGE value="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleting logout.html (now auto redirect to login page with message), user.is_password_check set to False after master password change, change to generic view in decrypting password, setting rules when user what to show or check password" />
+    <MESSAGE value="unittests, syntax change in aes.py file, getting rid of unnecessary code from forms.py, changing condition in views.py" />
+    <MESSAGE value="getting rid of unused imports in tests.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting rid of unused imports in tests.py" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.virtualenvs/PasswordWallet-pUWc8cVO/Lib/site-packages/BruteBuster/__init__.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="tests">
         <watch expression="__exception__" language="Python" />

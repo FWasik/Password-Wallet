@@ -34,6 +34,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    unsuccessful_time_login = models.DateTimeField(null=True, default=None)
 
     USERNAME_FIELD = "login"
     REQUIRED_FIELDS = []

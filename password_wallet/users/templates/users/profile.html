@@ -1,0 +1,36 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <h1>Profile</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class = 'alert alert-{{message.tags}}'>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Login</th>
+              <th scope="col">Is master password checked</th>
+              <th scope="col">Last successful login</th>
+              <th scope="col">Last unsuccessful login</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td> {{ user.id }}</td>
+                <td> {{ user.login }}</td>
+                <td> {{ user.is_password_checked }}</td>
+                <td> {{ user.last_login }}</td>
+                <td> {{ user.unsuccessful_time_login }}</td>
+              </tr>
+          </tbody>
+        </table>
+    </main>
+{% endblock content %}

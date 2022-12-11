@@ -1,0 +1,70 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <main>
+        <h1>Logs</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class = 'alert alert-{{message.tags}}'>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">IP Address</th>
+              <th scope="col">Number of successful logins</th>
+              <th scope="col">Number of unsuccessful logins</th>
+              <th scope="col">Current login fails</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for addr in data.query_is_successful %}
+              <tr>
+                <td> {{ addr.IP }}</td>
+                <td> {{ addr.num_of_succ }}</td>
+                <td> {{ addr.num_of_unsucc }}</td>
+                <td> {{ addr.log__failures }}</td>
+                <td>
+                {% if addr.log__failures > 4 %}
+                    <a href="{% url 'addresses:unblock' addr.log__pk %}" class="btn btn-secondary"> Unblock </a>
+                {% endif %}
+                  <a href="{% url 'addresses:delete' addr.log__pk %}" class="btn btn-danger"> Delete </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h2>Logs details</h2>
+        <a href="{% url 'addresses:delete-all-logs'  %}" class="btn btn-danger"> Delete All Logs </a>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">IP Address</th>
+              <th scope="col">Success</th>
+              <th scope="col">Time</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for addr in data.query_details %}
+              <tr>
+                <td> {{ addr.IP }}</td>
+                <td> {{ addr.is_successful }}</td>
+                <td> {{ addr.time }}</td>
+                <td>
+                    <a href="{% url 'addresses:delete-log' addr.pk %}" class="btn btn-danger"> Delete </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </main>
+{% endblock content %}

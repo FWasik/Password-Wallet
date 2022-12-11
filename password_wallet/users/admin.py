@@ -45,7 +45,8 @@ class CustomUserAdmin(UserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    list_display = ("id", "login", "password", "last_login", "is_password_checked", "is_active", "is_staff", "is_superuser")
+    list_display = ("id", "login", "password", "last_login", "unsuccessful_time_login", "is_password_checked",
+                    "is_active", "is_staff", "is_superuser")
     list_filter = ("is_superuser",)
     fieldsets = (
         (None, {'fields': ('login', 'password', "is_password_checked")}),
