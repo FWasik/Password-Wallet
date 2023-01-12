@@ -4,7 +4,7 @@
 
 {% block content %}
     <main>
-        <h1>Passwords</h1>
+        <h1>Shared Passwords</h1>
         {% if messages %}
             {% for message in messages %}
                 <div class = 'alert alert-{{message.tags}}'>
@@ -18,9 +18,9 @@
             <tr>
                 <th scope="col">ID</th>
               <th scope="col">Password</th>
-              <th scope="col">Login</th>
-              <th scope="col">Web address</th>
-              <th scope="col">Description</th>
+              <th scope="col">Share by</th>
+                <th scope="col">Web address</th>
+                <th scope="col">Description</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -28,16 +28,12 @@
             {% for obj in object_list %}
               <tr>
                 <td> {{ obj.id }}</td>
-                <td> {{ obj.password_to_wallet }}</td>
-                <td> {{ obj.login }}</td>
-                <td> {{ obj.web_address }}</td>
-                <td> {{ obj.description }}</td>
+                <td> {{ obj.password.password_to_wallet }}</td>
+                <td> {{ obj.share_by.login }}</td>
+                <td> {{ obj.password.web_address }}</td>
+                <td> {{ obj.password.description }}</td>
                 <td>
-                  <a href="{% url 'wallet:update' obj.id %}" class="btn btn-secondary"> Update </a>
-                  <a href="{% url 'wallet:delete' obj.id %}" class="btn btn-danger"> Delete </a>
-                  <a href="{% url 'wallet:check' obj.id %}" class="btn btn-dark">Show</a>
-                    <a href="{% url 'wallet:share' obj.id %}" class="btn btn-dark">Share</a>
-                  <a href="{% url 'wallet:clear' obj.id %}" class="btn btn-dark">Clear sharing</a>
+                    <a href="{% url 'wallet:check' obj.password.id %}" class="btn btn-dark">Show</a>
                 </td>
               </tr>
             {% endfor %}

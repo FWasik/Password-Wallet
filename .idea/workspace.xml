@@ -5,14 +5,19 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/addresses/templates/addresses/addresses.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/addresses/templates/addresses/addresses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/addresses/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/addresses/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/addresses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/addresses/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/password_wallet/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/templates/users/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/password_wallet/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/password_wallet/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/wallet_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/templates/wallet/wallet_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_wallet/wallet/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/password_wallet/wallet/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
       <recent name="C:\Users\frane\PycharmProjects\PasswordWallet" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Django">
+  <component name="RunManager" selected="Docker.docker-compose.yml.backend: Compose Deployment">
     <configuration name="Django" type="PythonConfigurationType" factoryName="Python">
       <module name="PasswordWallet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,6 +93,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.backend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="backend" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for tests.IfCheckPasswordCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="PasswordWallet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -104,11 +122,13 @@
     </configuration>
     <list>
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml.backend: Compose Deployment" />
       <item itemvalue="Python.Django" />
       <item itemvalue="Python tests.Python tests for tests.IfCheckPasswordCase" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml.backend: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Python tests.Python tests for tests.IfCheckPasswordCase" />
       </list>

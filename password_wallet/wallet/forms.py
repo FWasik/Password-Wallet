@@ -38,3 +38,7 @@ class PasswordCheckForm(ModelForm):
 		widgets = {
 			"password": forms.PasswordInput()
 		}
+
+
+class PasswordShareForm(forms.Form):
+	login = forms.CharField(max_length=512)

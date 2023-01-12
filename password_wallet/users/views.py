@@ -163,6 +163,6 @@ def display_message(request, log: FailedAttempt) -> None:
 
     else:
         messages.error(request, f'You have typed incorrect credentials {log.failures} times in a row. Login is '
-                                'blocked for 2 minutes. Last login attempted: '
+                                'blocked for 3 minutes. Last login attempted: '
                                 f'{log.timestamp.strftime("%Y-%m-%d %H:%M:%S")}',
                        extra_tags='block alert-danger')

@@ -9,6 +9,7 @@ psycopg2-binary = "*"
 django-crispy-forms = "*"
 pycryptodome = "*"
 django-brutebuster2 = "*"
+freezegun = "*"
 
 [dev-packages]
 

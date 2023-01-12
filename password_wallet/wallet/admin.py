@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Password
+from .models import Password, SharedPassword
 from django import forms
 from .aes import AESCipher
 
@@ -22,10 +22,17 @@ class PasswordCreationForm(forms.ModelForm):
 
 
 @admin.register(Password)
-class CustomUserAdmin(admin.ModelAdmin):
+class PasswordAdmin(admin.ModelAdmin):
     form = PasswordCreationForm
 
     list_display = ("id", "password_to_wallet", "user", "login", "web_address", "description")
+
+    ordering = ('id',)
+
+
+@admin.register(SharedPassword)
+class SharePasswordAdmin(admin.ModelAdmin):
+    list_display = ("id", "password", "share_to", "share_by")
 
     ordering = ('id',)
 

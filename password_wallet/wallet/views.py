@@ -10,12 +10,14 @@ from django.views.generic import (
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Password
+from .models import Password, SharedPassword
 from django.urls import reverse_lazy
-from .forms import PasswordCreationAndUpdateForm, PasswordCheckForm
+from .forms import PasswordCreationAndUpdateForm, PasswordCheckForm, PasswordShareForm
 from django.shortcuts import get_object_or_404
 from .aes import AESCipher
 from django.contrib import messages
+from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 
 
 class PasswordListView(LoginRequiredMixin, ListView):
@@ -76,7 +78,7 @@ class IfCheckedView(LoginRequiredMixin, FormView):
         pk = kwargs.get("pk")
         password = get_object_or_404(Password, pk=pk)
 
-        if password.user != request.user or request.user.is_password_checked:
+        if request.user.is_password_checked:
             return redirect("wallet:show", pk=pk)
 
         return super(IfCheckedView, self).get(request, args, kwargs)
@@ -101,7 +103,12 @@ class DecryptingPasswordView(DetailView):
         pk = kwargs.get("pk")
         password = get_object_or_404(Password, pk=pk)
 
-        if password.user == request.user:
+        try:
+            is_shared = SharedPassword.objects.filter(password=password, share_to=request.user)
+        except SharedPassword.DoesNotExist:
+            is_shared = None
+
+        if password.user == request.user or is_shared:
             password = get_object_or_404(Password,
                                          id=pk)
             enc_pass = password.password_to_wallet
@@ -113,3 +120,54 @@ class DecryptingPasswordView(DetailView):
             return render(request, "wallet/password_show.html", {"password": decry_pass})
 
         return redirect("wallet:wallet")
+
+
+@login_required
+def share_password_view(request, pk):
+    if request.method == "POST":
+        form = PasswordShareForm(request.POST)
+
+        share_to_login = request.POST.get("login")
+
+        password = get_object_or_404(Password, pk=pk)
+        try:
+            share_to = get_user_model().objects.get(login=share_to_login)
+
+            if password.user == request.user:
+                if not SharedPassword.objects.filter(password=password, share_to=share_to, share_by=request.user).exists():
+                    SharedPassword.objects.create(password=password, share_to=share_to, share_by=request.user)
+
+                    messages.success(request, f"Password shared to user {share_to_login}")
+
+                else:
+                    messages.error(request, f"This password already shared to user {share_to_login}",
+                                   extra_tags='block alert-danger')
+            else:
+                messages.error(request, f"You are not owner of this password!",
+                               extra_tags='block alert-danger')
+
+        except get_user_model().DoesNotExist:
+            messages.error(request, f"No user found with login: {share_to_login}",
+                           extra_tags='block alert-danger')
+
+    else:
+        form = PasswordShareForm()
+
+    return render(request, "wallet/share_password.html", {"form": form})
+
+
+@login_required
+def clear_sharing_password_view(request, pk):
+    password = get_object_or_404(Password, pk=pk)
+    SharedPassword.objects.filter(password=password).delete()
+
+    messages.success(request, f"You cleared sharing for password id: {password.pk}!")
+
+    return redirect(reverse_lazy("wallet:wallet"))
+
+
+class PasswordSharedListView(LoginRequiredMixin, ListView):
+    model = SharedPassword
+
+    def get_queryset(self):
+        return SharedPassword.objects.filter(share_to=self.request.user)

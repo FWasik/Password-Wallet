@@ -7,6 +7,7 @@ from django.contrib import messages
 
 from .models import Address
 
+
 @login_required
 def get_logs_view(request):
     if request.method == "GET":
@@ -28,6 +29,7 @@ def get_logs_view(request):
 
         return render(request, "addresses/addresses.html", {"data": data})
 
+
 @login_required
 def unblock_address_view(request, pk):
     log = FailedAttempt.objects.get(pk=pk)
@@ -43,7 +45,6 @@ def unblock_address_view(request, pk):
 @login_required
 def delete_address_view(request, pk):
     log = FailedAttempt.objects.get(pk=pk)
-    Address.objects.filter(username=request.user.login, log=log).delete()
     ip_addr = log.IP
     log.delete()
 

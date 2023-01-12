@@ -42,7 +42,10 @@
         </table>
 
         <h2>Logs details</h2>
-        <a href="{% url 'addresses:delete-all-logs'  %}" class="btn btn-danger"> Delete All Logs </a>
+
+        {% if data.query_details %}
+            <a href="{% url 'addresses:delete-all-logs'  %}" class="btn btn-danger"> Delete All Logs </a>
+        {% endif %}
 
         <table class="table">
           <thead>
